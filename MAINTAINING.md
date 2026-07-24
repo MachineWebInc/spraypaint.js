@@ -61,7 +61,9 @@ history; do not rebase published release history.
    ```
 
 The `Publish` GitHub Actions workflow verifies that the tag and package
-versions match, rebuilds the package, and publishes it to npm.
+versions match, rebuilds the package, and publishes it to npm with the `latest`
+dist-tag. The explicit tag is required because npm treats `-mt.*` versions as
+prereleases.
 
 Never reuse a published npm version. Increment the MachineWebInc suffix for a
 fork-only release. When incorporating a newer upstream release, use that
