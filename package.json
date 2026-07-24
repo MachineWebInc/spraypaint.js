@@ -1,12 +1,31 @@
 {
-  "name": "spraypaint-machinetools",
-  "description": "Graphiti Client / Javascript ORM (Updated by MachineTools Developers)",
+  "name": "@machinewebinc/spraypaint",
+  "version": "0.10.22-mt.3",
+  "description": "MachineWebInc-maintained fork of the Graphiti JavaScript client",
   "main": "lib/index.js",
   "module": "lib-esm/index.js",
   "types": "lib-esm/index.d.ts",
-  "author": "Fahad Idrees<fahad@machinetools.com> & Lonnie Warpup<lonnie@machinetools.com>",
+  "files": [
+    "dist",
+    "lib",
+    "lib-esm"
+  ],
+  "author": "Graphiti contributors",
+  "contributors": [
+    "Fahad Idrees <fahad@machinetools.com>",
+    "Lonnie Warpup <lonnie@machinetools.com>"
+  ],
   "license": "MIT",
-  "homepage": "https://github.com/MachineTools/spraypaint.js",
+  "homepage": "https://github.com/MachineWebInc/spraypaint.js#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MachineWebInc/spraypaint.js.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "packageManager": "yarn@1.22.22",
   "scripts": {
     "clean": "rimraf ./dist ./build ./coverage ./lib ./lib-esm",
     "prebuild": "yarn run clean && yarn test:ci && yarn lint:ci",
@@ -21,12 +40,11 @@
     "coverage": "yarn build:coverage && node --harmony ./node_modules/istanbul/lib/cli.js cover --root ./build/src --report lcov --report text ./node_modules/mocha/bin/_mocha ./build/test/**/*.test.js",
     "test": "NODE_ENV=test mocha --opts test/mocha.opts",
     "test:watch": "yarn run test --watch",
-    "test:all-versions": "yarn tav",
     "test:es6-compatibility": "yarn build:es6 && mocha --opts test/es6-compatibility/mocha.opts",
-    "test:ci": "yarn test:all-versions && yarn test:es6-compatibility && yarn test",
+    "test:ci": "yarn test:es6-compatibility && yarn test",
     "lint": "yarn run lint:ci --fix",
     "lint:ci": "yarn run eslint {src,test}{,/**}/*.ts",
-    "prepublish": "yarn build",
+    "prepublishOnly": "yarn build",
     "update:dependencies": "ncu -u"
   },
   "husky": {
@@ -105,11 +123,9 @@
     "rollup-plugin-uglify": "2.0.1",
     "sinon": "^4.0.2",
     "sinon-chai": "2.14.0",
-    "test-all-versions": "3.3.3",
     "ts-node": "4.0.1",
     "typescript": "3.2.4",
     "typescript-eslint-parser": "21.0.2",
     "winston": "^2.3.1"
-  },
-  "version": "0.10.22-mt-2"
+  }
 }
