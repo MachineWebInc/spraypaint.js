@@ -1,6 +1,11 @@
-# Spraypaint
+# @machinewebinc/spraypaint
 
-JS Client for [Graphiti](https://graphiti-api.github.io/graphiti) similar to ActiveRecord.
+MachineWebInc-maintained fork of the JavaScript client for
+[Graphiti](https://graphiti-api.github.io/graphiti), similar to ActiveRecord.
+
+```sh
+yarn add @machinewebinc/spraypaint
+```
 
 Written in [Typescript](https://www.typescriptlang.org) but works in plain old ES5 as well. This library is isomorphic - use it from the browser, or from the server with NodeJS.
 
@@ -9,7 +14,7 @@ Written in [Typescript](https://www.typescriptlang.org) but works in plain old E
 Please see [our documentation page](https://graphiti-api.github.io/graphiti/js) for full usage. Below is a Typescript sample:
 
 ```ts
-import { SpraypaintBase, Model, Attr, HasMany } from "spraypaint"
+import { SpraypaintBase, Model, Attr, HasMany } from "@machinewebinc/spraypaint"
 
 @Model()
 class ApplicationRecord extends SpraypaintBase {
